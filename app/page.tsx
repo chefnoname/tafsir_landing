@@ -9,10 +9,10 @@ export default function Home() {
           <a className="brand" href="#top" aria-label="Ilmi Online home">
             {/* Full-colour Ilmi logo (works on the light sand background).
                 Swap public/ilmi-logo.svg if you prefer another lockup. */}
-            <img src="/ilmi-logo.png" alt="Ilmi" />
+            <img src="/ilmi_english.png" alt="Ilmi" />
           </a>
           <a className="btn btn-ghost" href="#signup">
-            Start free week
+            Start free trial
           </a>
         </div>
       </header>
@@ -36,10 +36,11 @@ export default function Home() {
           </p>
           <div className="hero-cta">
             <a className="btn btn-primary" href="#signup">
-              Get your free week →
+              Start your free trial →
             </a>
             <span className="hero-note">
-              Sign up and we&apos;ll send your free access link.
+              7 days free — start your trial at checkout. No charge until it
+              ends, cancel anytime.
             </span>
           </div>
         </div>
@@ -92,16 +93,16 @@ export default function Home() {
               </div>
               <p className="offer-sub">
                 then <strong className="gold">£25 / month</strong> — less than £1 a
-                day. Cancel anytime.
+                day. Cancel anytime during your trial and pay nothing.
               </p>
               <ul className="offer-list">
                 <li>
                   <span className="check">✓</span>
-                  <span>7 days of full access, completely free</span>
+                  <span>Start at checkout — no charge for your first 7 days</span>
                 </li>
                 <li>
                   <span className="check">✓</span>
-                  <span>Access to every previous lesson in the library</span>
+                  <span>Full access, including every previous lesson</span>
                 </li>
                 {/* <li>
                   <span className="check">✓</span>
@@ -113,7 +114,7 @@ export default function Home() {
                 </li> */}
               </ul>
               <a className="btn btn-invert btn-block" href="#signup">
-                Claim your free week
+                Start your free trial
               </a>
             </aside>
           </div>
@@ -156,16 +157,17 @@ export default function Home() {
           <div className="signup-wrap">
             <div>
               <span className="eyebrow">Reserve your place</span>
-              <h2 className="heading">Start your free week</h2>
+              <h2 className="heading">Start your free trial</h2>
               <p>
-                Sign up below and we&apos;ll send you a link for{" "}
-                <strong className="accent">1 week of Ilmi Online, free</strong> —
-                including access to all previous lessons.
+                Sign up below to begin your{" "}
+                <strong className="accent">7-day free trial</strong> at checkout —
+                full access to Ilmi Online, including every previous lesson. You
+                won&apos;t be charged until your trial ends.
               </p>
               <p>
                 After your free week it&apos;s just{" "}
                 <strong className="accent">£25 / month</strong>, less than £1 a day.
-                Cancel anytime.
+                Cancel anytime before then and you pay nothing.
               </p>
             </div>
             <LeadForm />
@@ -176,7 +178,9 @@ export default function Home() {
       {/* ---------------- Footer ---------------- */}
       <footer className="footer">
         <div className="container footer-inner">
-          <span className="brand">ILMI</span>
+          <span className="brand">
+            <img src="/ilmi_arabic.png" alt="Ilmii" />
+          </span>
           <span>Tafsīr Ummul Kitāb &amp; Qiṣār Suwar · Starts 28 June 2026</span>
           <a href="https://ilmi.online">ilmi.online · @ilmi.online</a>
         </div>

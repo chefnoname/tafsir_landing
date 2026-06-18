@@ -25,12 +25,22 @@ export async function POST(request: Request) {
 
   const email = typeof data.email === "string" ? data.email.trim() : "";
   const firstName = typeof data.firstName === "string" ? data.firstName.trim() : "";
+  const phone = typeof data.phone === "string" ? data.phone.trim() : "";
 
   // Basic validation
   const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   if (!firstName || !emailValid) {
     return NextResponse.json(
       { error: "Please enter your name and a valid email address." },
+      { status: 422 }
+    );
+  }
+
+  // Phone is required — expect a dial code plus at least a few digits.
+  const phoneValid = /^\+\d{6,}$/.test(phone.replace(/[\s-]/g, ""));
+  if (!phoneValid) {
+    return NextResponse.json(
+      { error: "Please enter a valid phone number." },
       { status: 422 }
     );
   }
