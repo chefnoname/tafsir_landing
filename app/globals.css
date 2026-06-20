@@ -31,9 +31,12 @@
   --surface-warm: #fcfaf5;
   --text: var(--ink);
   /* Solid, WCAG AA-compliant text + accent colours on the sand background */
-  --muted: #475a51;        /* ~6.8:1 on sand */
-  --muted-faint: #5a6b62;  /* ~5.2:1 on sand — passes AA for normal text */
-  --accent-ink: #2c6e4f;   /* ~5.6:1 on sand — accessible green for eyebrows/accents */
+  --muted: #475a51;
+  /* ~6.8:1 on sand */
+  --muted-faint: #5a6b62;
+  /* ~5.2:1 on sand — passes AA for normal text */
+  --accent-ink: #2c6e4f;
+  /* ~5.6:1 on sand — accessible green for eyebrows/accents */
   --line: rgba(44, 62, 53, 0.16);
   --shadow: 0 18px 40px rgba(27, 67, 50, 0.10);
   --shadow-lg: 0 30px 70px rgba(27, 67, 50, 0.16);
@@ -76,7 +79,8 @@ body {
    (lower = fainter) and --pattern-size (tile size) to taste. */
 :root {
   --pattern-opacity: 0.03;
-  --pattern-size: 600px; /* size of each square logo tile */
+  --pattern-size: 600px;
+  /* size of each square logo tile */
 }
 
 body::before {
@@ -84,7 +88,8 @@ body::before {
   position: fixed;
   inset: 0;
   background-image: url("/pattern3.png");
-  background-repeat: repeat; /* tile across rows AND columns — fills the whole page */
+  background-repeat: repeat;
+  /* tile across rows AND columns — fills the whole page */
   background-size: var(--pattern-size);
   opacity: var(--pattern-opacity);
   pointer-events: none;
@@ -259,6 +264,27 @@ a {
   border-radius: 50%;
   background: var(--core-green);
   box-shadow: 0 0 0 4px rgba(82, 185, 85, 0.2);
+  animation: dot-flash 1.2s ease-in-out infinite;
+}
+
+@keyframes dot-flash {
+
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(82, 185, 85, 0.5);
+  }
+
+  50% {
+    opacity: 0.25;
+    box-shadow: 0 0 0 6px rgba(82, 185, 85, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge .dot {
+    animation: none;
+  }
 }
 
 .hero h1 {
@@ -282,6 +308,9 @@ a {
 }
 
 .hero-cta {
+  position: relative;
+  background: var(--surface);
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
@@ -293,6 +322,7 @@ a {
 .hero-note {
   font-size: 0.9rem;
   color: var(--muted-faint);
+  font-weight: 800;
 }
 
 /* Offer card sits on its own centered row under the course cards */
@@ -416,18 +446,18 @@ a {
 }
 
 .card {
+  position: relative;
+  z-index: 1;
   background: var(--surface);
-  border: 1px solid var(--line);
+  border: 1px solid rgba(56, 133, 103, 0.4);
   border-radius: var(--radius);
   padding: 34px 30px;
-  box-shadow: var(--shadow);
-  transition: transform 0.18s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.18s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  border-color: rgba(56, 133, 103, 0.4);
-  box-shadow: var(--shadow-lg);
 }
 
 .card .icon {
@@ -463,11 +493,13 @@ a {
 }
 
 .module {
-  background: var(--surface-warm);
-  border: 1px solid var(--line);
+  position: relative;
+  z-index: 1;
+  background: var(--surface);
+  border: 1px solid rgba(56, 133, 103, 0.4);
   border-radius: var(--radius);
   padding: 38px 34px;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-lg);
 }
 
 .module p {
@@ -675,19 +707,24 @@ a {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
+
   .signup-wrap,
   .split {
     grid-template-columns: 1fr;
   }
+
   .cards {
     grid-template-columns: 1fr;
   }
+
   .signup-wrap {
     padding: 32px 24px;
   }
+
   .hero {
     padding: 48px 0 24px;
   }
+
   .nav .btn-ghost {
     display: none;
   }
